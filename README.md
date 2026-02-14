@@ -11,6 +11,7 @@ If you use the code in your research, please cite this preprint.
 ```bash
 git clone https://github.com/Tomnakam/Representational-geometries-of-perception-and-working-memory
 ```
+It will take a couple of minutes to install on normal desktop computer.
 
 ## System Requirements: 
 This project requires **Conda**.
@@ -49,24 +50,48 @@ To obatin betamaps used in angle analysis, run analysis/GLM/surfaceGLM.py. Subje
 To obtain betamaps used in decoding, run analysis/GLM/surfaceGLMsingle.py. Subject id (1-9) and session id (1-4) will be asked.
 
 ## Betamaps
-All betamaps produced in the GLM steps are also available in [Zenodo] (the link will be openly accesible after publication).
-Place betamaps under:
+All beta maps generated during the GLM steps are available on [Zenodo] (the link will be made publicly accessible upon publication).
+After downloading, place the files in the following directories:
 
 ```
 analysis/main/runwise_beta
 analysis/main/single_beta
 ```
-for the subsequent analyses.
+These directories are required for the subsequent analyses.
+
+1. Run-wise beta maps
+File name format: beta_{subID}.pkl
+Format: Pickle file
+Shape: (n_regressors, n_vertices, n_runs)
+
+These are used for angle analysis.
+
+2. Trial-wise beta maps
+File name format: beta_condition_specific_{subID}_{sesID}.npz
+Format: Compressed NumPy archive (.npz)
+Each file contains four NumPy arrays, corresponding to:
+Face Perception
+Scene Perception
+Face Working Memory
+Scene Working Memory
+Each array has shape: (n_vertices, n_TRs)
+
+These are used for decoding analysis.
 
 ## Main Analyses and Figures
-The input for the scripts of main anlayses are betamaps, which are not required for demo codes.
+The main analysis scripts use the beta maps as input.
+(These files are not required when running the demo codes.)
 
-Asked input (input corresponding integer when asked):
-    subID: 1~9
-    excluded: 1(exclusion of poor runs); 0(use all runs)
-    atlas: 1(use coarse-grained 180 parcellations); 2(use fine-grained 22 ROIs)
-    tradeoff index: 1(simple log ratio; Figure 4); 2(probit ratio; Figure S12, S13)
-    decoding test statistics: 1(logit accuracy); 2(z_value)
+When executing the scripts, you will be prompted to enter several integer values:
+    subID: 1-9
+    excluded: 1  → exclude predefined poor runs  
+              0  → use all runs
+    atlas: 1  → coarse-grained atlas (180 parcels)  
+           2  → fine-grained atlas (22 ROIs)
+    tradeoff index: 1  → simple log ratio  (Figure 4)  
+                    2  → probit ratio      (Figure S12, S13)
+    decoding test statistics: 1  → logit-transformed accuracy  
+                              2  → z-value
 
 ### 1. angle
 To reproduce Figure 2 and S4,
