@@ -1,0 +1,13 @@
+sub*/
+derivatives/
+data/
+rawdata/
+
+*.nii
+*.nii.gz
+*.npz
+*.npy
+*.pkl
+*.mat
+
+.DS_Store
