@@ -1,19 +1,19 @@
 # Representational-geometries-of-perception-and-working-memory
 
-## Preprint: 
+## Preprint
 
 This is the code associated with the preprint:
 * [Nakamura, T., Yoo, S.B.M., Kay, K., Lau, H., Moharramipour, A. Representational geometries of perception and working memory. bioRxiv (2026)](https://doi.org/10.1101/2025.09.07.674590)
 
 If you use the code in your research, please cite this preprint.
 
-## Installation Guide:
+## Installation Guide
 ```bash
 git clone https://github.com/Tomnakam/Representational-geometries-of-perception-and-working-memory
 ```
 It will take a couple of minutes to install on normal desktop computer.
 
-## System Requirements: 
+## System Requirements
 This project requires **Conda**.
 To create the environment:
 
@@ -27,7 +27,7 @@ To run singl-trial GLM, [GLMsingle toolbox](https://github.com/cvnlab/GLMsingle)
 
 To run tradeoff_figure.py (Supplementary figures), Connectome Workbench (https://www.humanconnectome.org/software/get-connectome-workbench) is required.
 
-## Demo: 
+## Demo
 To quickly demonstrate how the analysis code is run,
 1) Run `analysis/main/angle_boostrap.py` with `demo = 1`  
    → Produces the z-value in the angle analysis (square marker in Figure 2A; ~1 minute)
@@ -59,23 +59,18 @@ analysis/main/single_beta
 ```
 These directories are required for the subsequent analyses.
 
-1. Run-wise beta maps
-File name format: beta_{subID}.pkl
-Format: Pickle file
-Shape: (n_regressors, n_vertices, n_runs)
-
+### 1. run-wise beta maps:
+      File name format: beta_{subID}.pkl
+      Format: Pickle file
+      Shape: (n_regressors, n_vertices, n_runs)
 These are used for angle analysis.
 
-2. Trial-wise beta maps
-File name format: beta_condition_specific_{subID}_{sesID}.npz
-Format: Compressed NumPy archive (.npz)
-Each file contains four NumPy arrays, corresponding to:
-Face Perception
-Scene Perception
-Face Working Memory
-Scene Working Memory
-Each array has shape: (n_vertices, n_TRs)
-
+### 2. trial-wise beta maps:
+      File name format: beta_condition_specific_{subID}_{sesID}.npz
+      Format: Compressed NumPy archive (.npz).
+      Each file contains four NumPy arrays, corresponding to:
+         Face Perception, Scene Perception, Face Working Memory, Scene Working Memory.
+      Each array has shape: (n_vertices, n_TRs)
 These are used for decoding analysis.
 
 ## Main Analyses and Figures
@@ -83,6 +78,7 @@ The main analysis scripts use the beta maps as input.
 (These files are not required when running the demo codes.)
 
 When executing the scripts, you will be prompted to enter several integer values:
+
     subID: 1-9
     excluded: 1  → exclude predefined poor runs  
               0  → use all runs
