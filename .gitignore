@@ -11,3 +11,7 @@ rawdata/
 *.mat
 
 .DS_Store
+
+# generated distmats
+analysis/main/final_output/distmats/
+final_output/distmats/
