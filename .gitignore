@@ -1,17 +1,1 @@
-sub*/
-derivatives/
-data/
-rawdata/
-
-*.nii
-*.nii.gz
-*.npz
-*.npy
-*.pkl
-*.mat
-
 .DS_Store
-
-# generated distmats
-analysis/main/final_output/distmats/
-final_output/distmats/
