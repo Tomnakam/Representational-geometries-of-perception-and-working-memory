@@ -567,7 +567,7 @@ def main():
     np.random.seed(subID)
 
     # permutations: demo only -> 10, else -> 1000
-    n_permutations = 10 if demo == 1 else 2
+    n_permutations = 10 if demo == 1 else 1000
 
     base_dir = Path("single_beta")
     save_dir = Path("decoding_summary")
